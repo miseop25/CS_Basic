@@ -37,3 +37,30 @@ Stack 이란 무엇일까? 사전에서 검색해보면 다음과 같이 나온�
 - 데이터를 적재하는 삽입연산 : Push
 - 데이터를 추출하고 메모리에서 삭제하는 삭제연산 : Pop
 
+스텍을 구현하려면 다음과 같은 것들이 필요하다.
+- 배열 
+- top 을 가리키는 변수
+
+top의 역할은 어느 곳에 데이터를 적재하고 삭제할 지를 알려주는 역할을 한다. 평상시에는 다음 적재할 곳을 가리킨다.   
+Push를 진행할 때에는 top의 위치에 적재시키고 top을 1 증가시킨다.   
+Pop을 진행하면 top 값을 하나 감소 시킨루 top이 가리키고 있는 곳을 반환하며 삭제한다. 
+
+Stack 구현 예시는 본 저장소에 올려놨습니다. [Stack 구현 예시 보기-Python](https://github.com/miseop25/CS_Basic/blob/master/Algorithm/Stack%26Que/StackEample.py)
+
+이렇게 스택을 직접 구현하는 것도 좋지만 사용할 때에는 내장 라이브러리를 이용하면 훨씬 편하게 이용할 수 있다.  
+Stack은 대부분의 언어가 지원하고 있다.  
+
+Python3를 기준으로 다음과 같이 사용 할 수 있습니다.   
+``` 
+stack = []
+stack.append(1) # Push 하는 작업입니다.
+popResult = stack.pop() # Pop 하는 작업입니다.
+```
+
+제가 스택을 활용해서 해결한 알고리즘 문제들은 다음 링크를 통해 볼 수 있습니다.
+
+- [프로그래머스 문제(Stack&Que)](https://github.com/miseop25/Back_Jun_Code_Study/tree/master/Programmers/Stack_Que)  
+- [백준 문제(Stack&Que)](https://github.com/miseop25/Back_Jun_Code_Study/tree/master/back_joon/스택)
+
+
+
