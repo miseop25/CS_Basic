@@ -101,7 +101,8 @@ popResult = stack.pop() # Pop 하는 작업입니다.
 연결큐는 해당 각각의 큐 다음위치에 무엇이 있는지 알수 있도록 진행한 것이다 -> 이러한 것을 Linked List라고 부르는것 같다.   
 연결쿠의 장점은 큐의 크기를 처음에 지정할 필요 없이 그때 그때 추가시킬 수 있으며 순차큐에서 발생한 메모리 문제도 발생하지 않는다.  
 
-큐는 
+연결큐의 파이썬 예시는 다음 링크에 있습니다. [코드보기](https://github.com/miseop25/CS_Basic/blob/master/Algorithm/Stack%26Que/QueueExample.py)
+
 
 
 
