@@ -17,7 +17,7 @@
 
 ## 자료구조
 - [스택 & 큐](https://github.com/miseop25/CS_Basic/tree/master/Algorithm/Stack%26Que)
-- 해시
+- [해시](https://github.com/miseop25/CS_Basic/tree/master/Algorithm/Hash)
 - 힙
 - 정렬
 - 완전탐색
