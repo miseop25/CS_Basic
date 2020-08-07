@@ -11,6 +11,7 @@
 - [객체지향 프로그래밍](https://github.com/miseop25/CS_Basic/tree/master/CommonSenseOfDev/ObjectOrientedProgramming) 
 - [함수형 프로그래밍](https://github.com/miseop25/CS_Basic/tree/master/CommonSenseOfDev/FunctionalProgramming)
 - [오픈소스와 라이센스](https://github.com/miseop25/CS_Basic/tree/master/CommonSenseOfDev/OpenSource)
+- [일급객체](https://github.com/miseop25/CS_Basic/tree/master/CommonSenseOfDev/FirstClassCitizen)
 - 클라우드 컴퓨팅
 - Git 과 Githubs
 
