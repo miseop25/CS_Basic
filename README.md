@@ -19,13 +19,12 @@
 ## 자료구조
 - [스택 & 큐](https://github.com/miseop25/CS_Basic/tree/master/Algorithm/Stack%26Que)
 - [해시](https://github.com/miseop25/CS_Basic/tree/master/Algorithm/Hash)
-- 힙
+- [트리](https://github.com/miseop25/CS_Basic/tree/master/Algorithm/Tree)
 - 정렬
 - 완전탐색
 - DP(다이나믹프로그래밍)
 - DFS,BFS(깊이/너비우선 탐색)
 - 이분탐색
-- 트리
 
 
 ## 운영체제 및 네트워크
