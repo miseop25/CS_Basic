@@ -19,6 +19,19 @@
 
 ![스크린샷 2020-08-19 오후 9 45 48](https://user-images.githubusercontent.com/44546283/90636311-5ee71c00-e265-11ea-9dc5-4250a0462b94.png)
 
+**다음은 선택정렬의 Python Code 입니다.**
+```
+def selectionSort(arr) :
+    for i in range(len(arr)-1) :
+        minIndex = i 
+        for j in range(i, len(arr)) :
+            if arr[j] < arr[minIndex] :
+                minIndex = j
+        buf = arr[i]
+        arr[i] = arr[minIndex]
+        arr[minIndex] = buf
+    return arr
+```
 
 *** 
   
@@ -28,7 +41,17 @@
 선택정렬은 앞에서부터 정렬이 이루어진 반면 버블정렬은 뒤에서부터 정렬이 이루어집니다.(1회전 시)
 버블정렬은 다음과 같은 과정을 통해서 이루어집니다.   
 ![스크린샷 2020-08-19 오후 11 25 30](https://user-images.githubusercontent.com/44546283/90647466-4d0c7580-e273-11ea-876a-448bc9b52a28.png)
-
+**다음은 버블정렬의 Python Code 입니다.**
+```
+def bubbleSort(arr) :
+    for i in range(len(arr) - 1, 0, -1) :
+        for j in range(i) :
+            if arr[j] > arr[j+1] :
+                buf = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = buf
+    return arr
+```
 ***
 
 ## 삽입정렬(Insertion Sort)  
@@ -41,8 +64,21 @@
 
 ![스크린샷 2020-08-20 오전 12 13 10](https://user-images.githubusercontent.com/44546283/90653293-f5253d00-e279-11ea-97a4-3137d499e8f8.png)
 
-위 그림과 같은 방식으로 움직일 요소를 Key에 저장한 후 들어갈 위치를 하나씩 찾으면서 정렬을 진행합니다.  
+위 그림과 같은 방식으로 움직일 요소를 Key에 저장한 후 들어갈 위치를 하나씩 찾으면서 정렬을 진행합니다.    
+
+**다음은 삽입정렬의 Python Code 입니다.**
+```
+def insertionSort(arr) :
+    for i in range(1, len(arr)) :
+        j = i - 1 
+        key = array[i]
+        while arr[j] > key and j >=0 :
+            arr[j+1] = arr[j]
+            j -= 1
+        arr[j+1] = key
+    return arr
+```
 
 > 참고페이지    
 https://reakwon.tistory.com/37   
-https://gmlwjd9405.github.io/2018/05/06/algorithm-bubble-sort.html
+https://gmlwjd9405.github.io/2018/05/06/algorithm-bubble-sort.html   
