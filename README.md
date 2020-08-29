@@ -22,7 +22,7 @@
 - [트리](https://github.com/miseop25/CS_Basic/tree/master/Algorithm/Tree)
 - [정렬](https://github.com/miseop25/CS_Basic/tree/master/Algorithm/Sorting)
 - [Trie](https://github.com/miseop25/CS_Basic/tree/master/Algorithm/Trie)
-- 완전탐색
+- [KMP](https://github.com/miseop25/CS_Basic/tree/master/Algorithm/KMP)
 - DP(다이나믹프로그래밍)
 - DFS,BFS(깊이/너비우선 탐색)
 - 이분탐색
