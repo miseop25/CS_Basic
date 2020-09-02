@@ -16,7 +16,7 @@
 - [Git 과 Githubs](https://github.com/miseop25/CS_Basic/tree/master/CommonSenseOfDev/GitAndGithub)
 
 
-## 자료구조
+## 자료구조 및 알고리즘
 - [스택 & 큐](https://github.com/miseop25/CS_Basic/tree/master/Algorithm/Stack%26Que)
 - [해시](https://github.com/miseop25/CS_Basic/tree/master/Algorithm/Hash)
 - [트리](https://github.com/miseop25/CS_Basic/tree/master/Algorithm/Tree)
