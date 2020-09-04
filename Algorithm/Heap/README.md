@@ -64,7 +64,8 @@ Heap은 큐와 마찬가지로 크게 2가지 연산이 존재한다.
 
 ## 구현코드 - Python
 
-[myHeap.py]() 파일에 Python으로 직접 구현해본 코드를 저장해 두었습니다.  
+[myHeap.py](https://github.com/miseop25/CS_Basic/blob/master/Algorithm/Heap/myHeap.py) 
+파일에 Python으로 직접 구현해본 코드를 저장해 두었습니다.  
 Python에서 Heap을 사용하실때에는 heapq 라이브러리를 import 해서 사용하시는걸 추천드립니다.  
 
 ## 정리하면서   

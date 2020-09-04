@@ -25,6 +25,7 @@
 - [Trie](https://github.com/miseop25/CS_Basic/tree/master/Algorithm/Trie)
 - [KMP](https://github.com/miseop25/CS_Basic/tree/master/Algorithm/KMP)
 - [위상정렬](https://github.com/miseop25/CS_Basic/tree/master/Algorithm/Topology_Sort)
+- [Heap](https://github.com/miseop25/CS_Basic/tree/master/Algorithm/Heap)
 <!-- - DP(다이나믹프로그래밍)
 - DFS,BFS(깊이/너비우선 탐색)
 - 이분탐색 -->
