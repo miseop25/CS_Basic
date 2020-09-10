@@ -35,5 +35,5 @@
 
 공부를 해 나아가면서 더 세분화 할 예정입니다.
 
-- 운영체제
+- [운영체제 개요](https://github.com/miseop25/CS_Basic/tree/master/OperatingSystemAndNetwork/OperatingSystem)
 - 네트워크
