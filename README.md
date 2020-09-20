@@ -27,6 +27,7 @@
 - [위상정렬](https://github.com/miseop25/CS_Basic/tree/master/Algorithm/Topology_Sort)
 - [Heap](https://github.com/miseop25/CS_Basic/tree/master/Algorithm/Heap)
 - [DFS,BFS(깊이/너비우선 탐색)](https://github.com/miseop25/CS_Basic/tree/master/Algorithm/DFS_BFS)
+- [이분탐색](https://github.com/miseop25/CS_Basic/tree/master/Algorithm/Binary%20Search)
 <!-- - DP(다이나믹프로그래밍)
 
 - 이분탐색 -->
