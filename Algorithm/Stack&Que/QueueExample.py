@@ -48,9 +48,12 @@ class makeQueueWithStack :
     def deQueue(self) :
         if self.b_Stack :
             return self.b_Stack.pop()
-        for i in range(len(self.a_Stack)-1, -1, -1) :
-            self.b_Stack.append(self.a_Stack[i])
-        self.a_Stack = []
+        while self.a_Stack :
+            self.b_Stack.append(self.a_Stack.pop())
+
+        if not self.b_Stack :
+            return "deQueue 할 수 없습니다."
+
         return self.b_Stack.pop()
 
 
@@ -67,5 +70,6 @@ if __name__ == "__main__":
     st = makeQueueWithStack()
     st.enQueue(1)
     st.enQueue(2)
+    print(st.deQueue())
     print(st.deQueue())
     print(st.deQueue())
