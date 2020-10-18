@@ -101,7 +101,27 @@ popResult = stack.pop() # Pop 하는 작업입니다.
 연결큐는 해당 각각의 큐 다음위치에 무엇이 있는지 알수 있도록 진행한 것이다 -> 이러한 것을 Linked List라고 부르는것 같다.   
 연결쿠의 장점은 큐의 크기를 처음에 지정할 필요 없이 그때 그때 추가시킬 수 있으며 순차큐에서 발생한 메모리 문제도 발생하지 않는다.  
 
-연결큐의 파이썬 예시는 다음 링크에 있습니다. [코드보기](https://github.com/miseop25/CS_Basic/blob/master/Algorithm/Stack%26Que/QueueExample.py)
+
+## 스택 2개로 큐 만들기!
+
+스택 2개로 큐를 만들 수도 있습니다. 
+어떻게 하면 LIFO 인 스택으로 FIFO인 큐를 만들 수 있을까요? 
+방법은 생각보다 간단합니다. 다음과 같은 방법으로 진행하면 됩니다.  
+
+- 먼저 두개의 스택을 준비합니다.    
+    A_Stack : Enqueue(삽입) 할때 사용되는 스택입니다.   
+    B_Stack : Dequeue(추출) 할때 사용되는 스택입니다.    
+
+- Enqueue(삽입) 작업 진행 시   
+    A_Stack 에 삽입할 Data를 추가해줍니다.    
+- Dequeue(추출) 작업 진행 시   
+    B_Stack이 비어있다면 A_Stack에 있는 Data를 뒤에서부터 B_Stack에 추가해줍니다.   
+    EX) A_Stack = [1,2,3] -> B_Stack = [3,2,1]   
+    그 이후 B_Stack 에서 Pop을 진행해 값을 리턴합니다. (B_Stack이 비어있지 않다면 바로 진행합니다.)   
+
+시간복잡도가 다소 증가할 수도 있겠지만 Stack 2개를 활용해서 Queue를 만들어 볼 수 있습니다.
+
+연결큐와 Stack 2개로 큐 만들기는 파이썬 예시는 다음 링크에 있습니다. [코드보기](https://github.com/miseop25/CS_Basic/blob/master/Algorithm/Stack%26Que/QueueExample.py)
 
 
 
