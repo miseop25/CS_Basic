@@ -37,6 +37,22 @@ class LinkedQue(object) :
             temp = temp.next
         print(result)
 
+class makeQueueWithStack :
+    def __init__(self):
+        self.a_Stack = []
+        self.b_Stack = []
+    
+    def enQueue(self, data) :
+        self.a_Stack.append(data)
+    
+    def deQueue(self) :
+        if self.b_Stack :
+            return self.b_Stack.pop()
+        for i in range(len(self.a_Stack)-1, -1, -1) :
+            self.b_Stack.append(self.a_Stack[i])
+        self.a_Stack = []
+        return self.b_Stack.pop()
+
 
 if __name__ == "__main__":
     l = LinkedQue()
@@ -45,3 +61,11 @@ if __name__ == "__main__":
     l.print()
     l.deQueue()
     l.print()
+
+    # 스택 2개로 큐 만들기 
+    print("=======================")
+    st = makeQueueWithStack()
+    st.enQueue(1)
+    st.enQueue(2)
+    print(st.deQueue())
+    print(st.deQueue())
