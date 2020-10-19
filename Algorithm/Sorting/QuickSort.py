@@ -7,29 +7,30 @@ class Sort :
             return
         
         pivot = st
-        i = st + 1
-        j = ed
+        small = st + 1
+        big = ed
         temp = 0
-        while i <= j :
-            while i <= ed and self.array[i] <= self.array[pivot] :
-                i += 1
+        while small <= big :
+            while small <= ed and self.array[small] <= self.array[pivot] :
+                small += 1
             
-            while j > st and self.array[j] >= self.array[pivot] :
-                j -= 1
-            if i > j :
-                temp = self.array[j]
-                self.array[j] = self.array[pivot]
+            while big > st and self.array[big] >= self.array[pivot] :
+                big -= 1
+            if small > big :
+                temp = self.array[big]
+                self.array[big] = self.array[pivot]
                 self.array[pivot] = temp
             else :
-                temp = self.array[i]
-                self.array[i] = self.array[j]
-                self.array[j] = temp
-        self.quickSort(st, j-1)
-        self.quickSort(j+1 , ed)
+                temp = self.array[small]
+                self.array[small] = self.array[big]
+                self.array[big] = temp
+
+        self.quickSort(st, big-1)
+        self.quickSort(big+1 , ed)
     
 
 if __name__ == "__main__":
-    test = [2,4,6,4,1,23,6,8,8,213,4]
+    test = [3,7,8,1,5,9,6,10,2,4]
     s = Sort(test)
     s.quickSort(0, len(test)-1)
     print(s.array)
