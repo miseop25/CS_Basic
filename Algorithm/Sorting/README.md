@@ -91,7 +91,7 @@ def bubbleSort(arr) :
 def insertionSort(arr) :
     for i in range(1, len(arr)) :
         j = i - 1 
-        key = array[i]
+        key = arr[i]
         while arr[j] > key and j >=0 :
             arr[j+1] = arr[j]
             j -= 1
