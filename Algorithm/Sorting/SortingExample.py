@@ -21,7 +21,7 @@ def bubbleSort(arr) :
 def insertionSort(arr) :
     for i in range(1, len(arr)) :
         j = i - 1 
-        key = array[i]
+        key = arr[i]
         while arr[j] > key and j >=0 :
             arr[j+1] = arr[j]
             j -= 1
@@ -30,6 +30,6 @@ def insertionSort(arr) :
 
 
 array = [2,5,3,1,6,0]
-print(selectionSort(array))
-print(bubbleSort(array))
-print(insertionSort(array))
+print(selectionSort(list(array)))
+print(bubbleSort(list(array)))
+print(insertionSort(list(array)))
