@@ -16,6 +16,7 @@ class Sort :
             
             while big > st and self.array[big] >= self.array[pivot] :
                 big -= 1
+                
             if small > big :
                 temp = self.array[big]
                 self.array[big] = self.array[pivot]
