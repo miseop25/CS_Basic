@@ -34,4 +34,4 @@ if __name__ == "__main__":
     test = [3,7,8,1,5,9,6,10,2,4]
     s = Sort(test)
     s.quickSort(0, len(test)-1)
-    print(s.array)
+    print(s.array)    
