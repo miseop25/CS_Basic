@@ -61,25 +61,3 @@ As! : 강제 추출 연산, 실패하면 크러시가 발생한다. (아에 앱�
 
 > 참조   
 https://docs.swift.org/swift-book/LanguageGuide/TypeCasting.html   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
