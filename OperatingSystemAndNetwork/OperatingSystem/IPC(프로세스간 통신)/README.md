@@ -54,7 +54,204 @@ Named 파이프는 파이프 이름만 알고 있다면 전혀 상관없는 프�
 
 
 
-업무를 진행하다 프로세스간 통신 중 Named 파이프를 알아볼 일이 있어서 간략하게 정리해 보았습니다.   
+업무를 진행하다 프로세스간 통신 중 Named 파이프를 알아볼 일이 있어서 간략하게 정리해 보았습니다.  
+
+
+## Named Pipe를 활용한 간단한 예제 
+
+Pipe가 대략적으로 무엇인지는 알겠지만 어떻게 사용하지? 라는 의문이 있을 것 같아 간단한 예제를 준비했습니다.   
+
+서버, 클라이언트로 구성되어있고 클라이언트에서 메세지를 주면 서버에서 받아서 출력하는 기능을 하는 예제입니다.    
+
+<img src="https://user-images.githubusercontent.com/44546283/128348946-94b4d4a6-583c-4365-994a-9408a8f57a4a.png" width="600" height="300">
+
+대략 적인 메시지 흐름은 다음과 같습니다.   
+
+#### Server Code 
+```
+#include "windows.h"
+#include <iostream> 
+#include <tchar.h>
+#include <string.h>
+
+#define PipeName _T("\\\\.\\pipe\\testPipe")  //파이프의 이름 명시 
+
+
+#define BUFFER_SIZE 1024 //1k
+#define ACK_MESG_RECV "Message received successfully"
+
+
+HANDLE hPipe;
+
+int repeate() {
+	char szBuffer[BUFFER_SIZE];
+	DWORD cbBytes;
+
+
+	//Read client message
+	BOOL bResult = ReadFile(
+		hPipe,                // handle to pipe 
+		szBuffer,             // buffer to receive data 
+		sizeof(szBuffer),     // size of buffer 
+		&cbBytes,             // number of bytes read 
+		NULL);                // not overlapped I/O 
+
+	if ((!bResult) || (0 == cbBytes))
+	{
+		printf("\nError occurred while reading from the client: %d", GetLastError());
+		CloseHandle(hPipe);
+		system("Pause");
+		return 1;  //Error
+	}
+	else
+	{
+		printf("\nReadFile() was successful.");
+	}
+
+	printf("\nClient sent the following message: %s", szBuffer);
+
+	strcpy_s(szBuffer, ACK_MESG_RECV);
+
+
+	repeate();
+
+}
+
+
+int main(int argc, char* argv[])
+{
+	hPipe = CreateNamedPipe(
+		PipeName,             // pipe name 
+		PIPE_ACCESS_DUPLEX,       // read/write access 
+		PIPE_TYPE_MESSAGE |       // message type pipe 
+		PIPE_READMODE_MESSAGE |   // message-read mode 
+		PIPE_WAIT,                // blocking mode 
+		PIPE_UNLIMITED_INSTANCES, // max. instances  
+		BUFFER_SIZE,              // output buffer size 
+		BUFFER_SIZE,              // input buffer size 
+		NMPWAIT_USE_DEFAULT_WAIT, // client time-out 
+		NULL);                    // default security attribute  
+
+
+
+
+	if (INVALID_HANDLE_VALUE == hPipe)
+	{
+		printf("\nError occurred while creating the pipe: %d", GetLastError());
+		system("Pause");
+		return 1;  //Error
+	}
+	else
+	{
+		printf("\nCreateNamedPipe() was successful.");
+	}
+
+	printf("\nWaiting for client connection...");
+
+	//Wait for the client to connect
+	BOOL bClientConnected = ConnectNamedPipe(hPipe, NULL);
+
+	if (FALSE == bClientConnected)
+	{
+		printf("\nError occurred while connecting to the client: %d", GetLastError());
+		CloseHandle(hPipe);
+		system("Pause");
+		return 1;  //Error
+	}
+	else
+	{
+		printf("\nConnectNamedPipe() was successful.");
+	}
+
+
+	repeate();
+
+}
+
+```
+
+#### Client Code    
+```
+#include "windows.h"
+#include <iostream>
+#include <tchar.h>
+#include <stdio.h>
+
+
+#define PipeName _T("\\\\.\\pipe\\testPipe")  //파이프의 이름 명시 
+
+
+#define BUFFER_SIZE 1024 //1k
+#define ACK_MESG_RECV "Message received successfully"
+
+HANDLE hPipe;
+
+int repeate() {
+	char szBuffer[BUFFER_SIZE];
+
+	printf("\nEnter a message to be sent to the server: ");
+	std::cin.getline(szBuffer, BUFFER_SIZE);
+	
+
+	DWORD cbBytes;
+
+	//Send the message to server
+	BOOL bResult = WriteFile(
+		hPipe,                // handle to pipe 
+		szBuffer,             // buffer to write from 
+		strlen(szBuffer) + 1,   // number of bytes to write, include the NULL
+		&cbBytes,             // number of bytes written 
+		NULL);                // not overlapped I/O 
+
+	if ((!bResult) || (strlen(szBuffer) + 1 != cbBytes))
+	{
+		printf("\nError occurred while writing to the server: %d", GetLastError());
+		CloseHandle(hPipe);
+		system("Pause");
+		return 1;  //Error
+	}
+	else
+	{
+		printf("\nWriteFile() was successful.");
+	}
+
+	repeate();
+
+}
+
+int main(int argc, char* argv[])
+{
+	//Connect to the server pipe using CreateFile()
+	hPipe = CreateFile(
+		PipeName,   // pipe name 
+		GENERIC_READ |  // read and write access 
+		GENERIC_WRITE,
+		0,              // no sharing 
+		NULL,           // default security attributes
+		OPEN_EXISTING,  // opens existing pipe 
+		0,              // default attributes 
+		NULL);          // no template file 
+
+	if (INVALID_HANDLE_VALUE == hPipe)
+	{
+		printf("\nError occurred while connecting to the server: %d", GetLastError());
+		//One might want to check whether the server pipe is busy
+		//This sample will error out if the server pipe is busy
+		//Read on ERROR_PIPE_BUSY and WaitNamedPipe() for that
+		system("Pause");
+		return 1;  //Error
+	}
+	else
+	{
+		printf("\nCreateFile() was successful.");
+	}
+
+	repeate();
+}
+
+```
+
+
 
 보다 자세한 내용은 다음 MSDN의 문서를 참조하면 좋을것 같습니다.   
 https://docs.microsoft.com/ko-kr/windows/win32/ipc/pipes
